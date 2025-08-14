@@ -32,4 +32,7 @@
       </div>
     </div>
   </div>
+  <a href="{% url 'taxi:driver-delete' driver.id %}" class="btn btn-outline-danger btn-sm">Delete</a>
+  <br>
+  <a href="{% url 'taxi:driver-update' driver.id %}" class="btn btn-outline-primary btn-sm">Update</a>
 {% endblock %}

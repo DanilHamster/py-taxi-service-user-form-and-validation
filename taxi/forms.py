@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 from django.core.validators import RegexValidator
 
-from taxi.models import Driver, Car
+from taxi.models import Car
 
 
 license_format = forms.CharField(validators=[RegexValidator(
@@ -39,7 +39,7 @@ class DriverLicenseUpdateForm(forms.ModelForm):
 
 class CarCreateForm(forms.ModelForm):
     drivers = forms.ModelMultipleChoiceField(
-        queryset=Driver.objects.all(),
+        queryset=get_user_model().objects.all(),
         widget=forms.CheckboxSelectMultiple
     )
 
